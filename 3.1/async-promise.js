@@ -20,7 +20,7 @@ readFileAsArray('./numbers')
   .then(lines => {
     const numbers = lines.map(Number);
     const oddNumbers = numbers.filter(number => number % 2 === 1);
-    console.log('odd numbers count:', oddNumbers.length);
+    console.log('1.odd numbers count:', oddNumbers.length);
   })
   .catch(console.error);
 
@@ -29,18 +29,20 @@ readFileAsArray('./numbers', (err, lines) => {
 
   const numbers = lines.map(Number);
   const oddNumbers = numbers.filter(number => number % 2 === 1);
-  console.log('odd numbers count:', oddNumbers.length);
+  console.log('2.odd numbers count:', oddNumbers.length);
 });
 
 async function countOdd () {
   try {
+    console.log('begin countOdd().');
     const lines = await readFileAsArray('./numbers');
     const numbers = lines.map(Number);
     const oddCount = numbers.filter(number => number % 2 === 1).length;
-    console.log('odd numbers count:', oddCount);
+    console.log('3.odd numbers count:', oddCount);
   } catch(err) {
     console.error(err);
   }
 }
 
 countOdd();
+console.log('program end.');
